@@ -37,10 +37,10 @@ extern "C" {
 typedef struct yaksuri_hipi_type_s {
     void (*pack) (const void *inbuf, void *outbuf, uintptr_t count, yaksa_op_t op,
                   yaksuri_hipi_md_s * md, int n_threads, int n_blocks_x, int n_blocks_y,
-                  int n_blocks_z, int device);
+                  int n_blocks_z, hipStream_t stream);
     void (*unpack) (const void *inbuf, void *outbuf, uintptr_t count, yaksa_op_t op,
                     yaksuri_hipi_md_s * md, int n_threads, int n_blocks_x, int n_blocks_y,
-                    int n_blocks_z, int device);
+                    int n_blocks_z, hipStream_t stream);
     const char *name;
     yaksuri_hipi_md_s *md;
     pthread_mutex_t mdmutex;
